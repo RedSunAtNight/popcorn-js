@@ -1,0 +1,45 @@
+<!doctype html>
+<head>
+    <title>Testing Aspect Ratio Plugin</title>
+    <script src="popcornWithPlugins.js"></script>
+    <script src="popcorn.aspectratio.js"></script>
+
+<script>
+Popcorn( function(){
+    var popcorn = Popcorn("#video");
+    popcorn.aspectratio({
+        "start": 1.4,
+        "end": 2.4,
+        "ratio": "aspect-2p39-1",
+        "m_o": "blackbars"
+    });
+});
+
+Popcorn( function(){
+    var popcorn = Popcorn("#video");
+    popcorn.aspectratio({
+        "start": 3.4,
+        "end": 4.4,
+        "target": "video",
+        "ratio": "aspect-16-9",
+        "m_o": "deform"
+    });
+});
+</script>
+
+</head>
+
+<body>
+<h2>Aspect Ratio Plugin Demo</h2>
+
+<div id="viddiv">
+<video id="video" loop controls>
+    <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4" width="480" height="400"></source>
+    <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv" width="480" height="400"></source>
+    <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.webm" width="480" height="400"></source>
+</video>
+</div>
+
+</body>
+
+</html>
