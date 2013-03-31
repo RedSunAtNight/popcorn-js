@@ -2,7 +2,10 @@
 *   aspectratio.js
 *   This plugin changes the aspect ratio of the video.
 *
-*   TODO: _update is fucked.
+*   TODO: _update is a mess.
+*               Separate aspectratio events, both made in Popcorn Maker, will wind up sharing an identifier.
+*               Changing the method (deform vs black bars) results in an undefined identifier, while changing
+*               desired aspect ratio results in an appropriately changed identifier.
 *        Trying desperately to get this to play nice with Popcorn Maker.
 */
 
@@ -204,7 +207,8 @@
             },
             _update: function (trackEvent, options) {
                 /* code for update of plugin-created track event
-                    mostly redoes _setup */                
+                    mostly redoes _setup */
+                
                 if (! options._plid){
                     options.plid = _plid;
                 }
@@ -218,6 +222,9 @@
                     barId,
                     strPlid = options.plid + '';
                 
+                // The following if/else does not work.
+                // Needs a way of keeping track of identifiers for css classes and
+                // blackbar canvases on update.
                 if (options.ratio) {
                     cssClass = options.ratio + '-' + options.plid;
                     barId = cssClass;
