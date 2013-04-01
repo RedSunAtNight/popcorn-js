@@ -201,8 +201,13 @@
                 
                 }
                 
-                // Line below exists because without it, video dimensions were being read as zero
-                window.addEventListener('load', doIt);
+                // Lines below exists because without it, video dimensions were being read as zero
+                if (_this.media.readyState >= 2){
+                    doIt();
+                }
+                else {
+                    window.addEventListener('load', doIt);
+                }
                 
             },
             _update: function (trackEvent, options) {
@@ -210,7 +215,7 @@
                     mostly redoes _setup */
                 
                 if (! options._plid){
-                    options.plid = _plid;
+                    options.plid = _plid; // BAD. Need to hold onto plid some other way.
                 }
                 
                 var _this = this,
