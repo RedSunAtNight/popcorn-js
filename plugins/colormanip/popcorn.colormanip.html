@@ -1,0 +1,40 @@
+<!doctype html>
+
+<head>
+    <title>Demonstrating Color Manipulation</title>
+    <script src="../../popcorn.js"></script>
+    <script src="popcorn.colormanip.js"></script>
+
+    <script>
+Popcorn( function(){
+    var popcorn = Popcorn("#video");
+    popcorn.colormanip({
+        "start": 1.4,
+        "end": 5.2,
+        "coloring": "custom",
+        "customRed": 10,
+        "customGreen": 50,
+        "customBlue": -30
+    });
+});
+    </script>
+</head>
+
+<body>
+
+<div id="textdiv">
+    <h2>Testing Popcorn.colormanip</h2>
+    <p>You should see the color change at a certain point, and then change back.
+    <br>
+    This demonstration will <i>only</i> work if the video is served from the same domain as the code. It will most likely not work from the hard drive, unless you poke some security holes in your browser.</p>
+</div>
+
+<div id="viddiv" style="position:relative">
+    <video id="video" loop controls>
+        <source src="popcornplug.ogv"></source>
+    </video>
+</div>
+
+</body>
+
+</html>

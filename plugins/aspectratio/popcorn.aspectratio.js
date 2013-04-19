@@ -1,12 +1,9 @@
 /*
-*   aspectratio.js
+*   popcorn.aspectratio.js
 *   This plugin changes the aspect ratio of the video.
 *
-*   TODO: _update is a mess.
-*               Separate aspectratio events, both made in Popcorn Maker, will wind up sharing an identifier.
-*               Changing the method (deform vs black bars) results in an undefined identifier, while changing
-*               desired aspect ratio results in an appropriately changed identifier.
-*        Trying desperately to get this to play nice with Popcorn Maker.
+*   TODO: _update is a mess. It's not needed as long as this
+*   plugin in not part of Popcorn Maker. 
 */
 
 (function( Popcorn ) {
@@ -214,6 +211,7 @@
                 /* code for update of plugin-created track event
                     mostly redoes _setup */
                 
+                /*
                 if (! options._plid){
                     options.plid = _plid; // BAD. Need to hold onto plid some other way.
                 }
@@ -278,7 +276,8 @@
                 }
                 else {
                     throw 'Error: nonexistent method for changing aspect ratio';
-                }                
+                }
+                */
             },
             _teardown: function (options) {
                 /* code for removal of plugin or destruction of instance
